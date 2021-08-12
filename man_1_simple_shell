@@ -1,0 +1,8 @@
+.TH  "24" "AUGUST 2021" "MR ROBOT"
+.SH NAME
+.B Shell
+- Simple UNIX command interpreter
+.SH SYNOPSIS
+.B Mr. Robot -
+nothing
+.SH DESCRIPTION
