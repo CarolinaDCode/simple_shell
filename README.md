@@ -1,11 +1,12 @@
 # project 0x16. C - Simple Shell ✏️
 
 ### 🖋️ Description
+***
 
 The project is about creating our version of a command line interpreter: shell. Simple_shell is an sh-compatible command language interpreter that executes commands read from the standard input.
 
 ### 📋 Requirements
-
+***
 * Allowed editors: `vi`, `vim`, `emacs`
 * All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
 * All your files should end with a new line
@@ -17,12 +18,12 @@ The project is about creating our version of a command line interpreter: shell. 
 * Use system calls only when you need to
 
 ### ⚙ Compilation
-
+***
 Your shell will be compiled this way:
 `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
 
 ### 🧪 Testing
-
+***
 Your shell should work like this in interactive mode:
 ```
 $ ./hsh
@@ -48,7 +49,7 @@ $
 ```
 
 ### 📂 files
-
+***
 | Files | Description |
 | --- | --- |
 | [simpleshell.h](https://github.com/CarolinaDCode/simple_shell/blob/master/simpleshell.h) | Header file. Contain all the prototype name of the functions. |
@@ -57,7 +58,9 @@ $
 
 
 ### ✒️ Authors
+***
+*Holberton School Students*
 
-*Holberton School Student*
 Diana Carhuamanta - [CarolinaDCode](https://github.com/CarolinaDCode)
+
 Geraldine Meneses - [nitaly31](https://github.com/nitaly31)
