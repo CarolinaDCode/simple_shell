@@ -1,26 +1,10 @@
 # project 0x16. C - Simple Shell ✏️
 
-### Description
+### 🖋️ Description
 
-The _printf() function takes one argument: a string of characters to print.
-This string is made up of characters, each of which is printed exactly as it appears.
-On the other hand, we have characters that normally print as expected, but when you add a specifier, they become special.
-The format specifiers are:
-FORMAT generates a specific format relative to the input of the specifier.
+The project is about creating our version of a command line interpreter: shell. Simple_shell is an sh-compatible command language interpreter that executes commands read from the standard input.
 
-### Requirements
-
-* Allowed editors: `vi`, `vim`, `emacs`
-* All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
-* All your files should end with a new line
-* A README.md file, at the root of the folder of the project is mandatory
-* Your code should use the `Betty` style. It will be checked using betty-style.pl and betty-doc.pl
-* Your shell should not have any memory leaks
-* No more than 5 functions per file
-* All your header files should be include guarded
-* Use system calls only when you need to
-
-### Requirements
+### 📋 Requirements
 
 * Allowed editors: `vi`, `vim`, `emacs`
 * All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
@@ -37,7 +21,7 @@ FORMAT generates a specific format relative to the input of the specifier.
 Your shell will be compiled this way:
 `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
 
-### Testing
+### 🧪 Testing
 
 Your shell should work like this in interactive mode:
 ```
