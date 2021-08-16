@@ -26,7 +26,7 @@ char **brokentoken(char *buffer, char *delimiter)
 		i++;
 		if (i == mcount)
 		{
-		token = realloc(token, mcount);
+			token = _realloc(token, mcount, 2*mcount);
 			if (token == NULL)
 			{
 				return (NULL);
@@ -36,4 +36,3 @@ char **brokentoken(char *buffer, char *delimiter)
 	}
 	return (token);
 }
-
