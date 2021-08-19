@@ -6,15 +6,14 @@
  *
  *
  */
-int main(int argc, char **argv, char **enviroment)
+int main(int ac, char **av, char **env)
 {
 	input_v var = {NULL, NULL};
 	size_t cant_buff = 0;
 	ssize_t len = 0;
 
-	(void)argc;
-	(void)argv;
-	(void)enviroment;
+	(void)ac;
+	(void)av;
 
 	write(1,"#cisfun$ ",9);
 
@@ -27,7 +26,7 @@ int main(int argc, char **argv, char **enviroment)
 
 		var.array_inputs = brokentoken(var.buffer, " ");
 
-		if (check_for_comand(&var) == NULL)
+		if (check_for_comand(&var, env) == NULL)
 		{
 			write(1, "./shell: No such file or directory\n", 36);
 		}

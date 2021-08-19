@@ -22,21 +22,25 @@ typedef struct var_input
 typedef struct com_struct
 {
 	char *name;
-	void (*p)(input_v *);
+	void (*p)(input_v *, char **);
 } comand_v;
 
 /*utility functions*/
-void (*check_for_comand(input_v *vars))(input_v *vars);
+void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env);
 char **brokentoken(char *buffer, char *delimiter);
+void comd_handling(input_v *vars, char **env);
+char *get_enviroment(char **env, char *comd);
+char *get_dir_concat(char **new_env, char* comd);
+
+/*Copy the function C*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int _strcmp(char *s1, char *s2);
-void comd_handling(input_v *vars);
-
+char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
 
 /*Command functions*/
-void bin_ls(input_v *vars);
+void bin_ls(input_v *vars, char **env);
+void exit_func(input_v *vars, char **env);
 
-
-
-void file1(input_v *vars);
+void file1(input_v *vars, char **env);
 #endif
