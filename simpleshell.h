@@ -15,6 +15,7 @@
 
 typedef struct var_input
 {
+	int count;
 	char *buffer;
 	char **array_inputs;
 } input_v;
@@ -32,11 +33,15 @@ void comd_handling(input_v *vars, char **env);
 char *get_enviroment(char **env, char *comd);
 char *get_dir_concat(char **new_env, char* comd);
 
-/*Copy the function C*/
+/*methods function C*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
+char *_strtok(char *line, char *delim);
+int _strlen(char *s);
+int _atoi(char *s);
+char *convers_integer(int count);
 
 /*Command functions*/
 void bin_ls(input_v *vars, char **env);

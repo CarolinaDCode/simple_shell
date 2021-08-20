@@ -15,13 +15,10 @@ char **brokentoken(char *buffer, char *delimiter)
 	if (buffer == NULL)
 		return (NULL);
 	token = malloc(sizeof(char*)*mcount);
-
 	if (token == NULL)
-	{
 		return (NULL);
-	}
 
-	while ((token[i] = strtok(buffer, delimiter)) != NULL)
+	while ((token[i] = _strtok(buffer, delimiter)) != NULL)
 	{
 		i++;
 		if (i == mcount)

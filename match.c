@@ -37,14 +37,37 @@ void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env)
 
 void exit_func(input_v *vars, char **env)
 {
-	(void)env;
-	exit(98);
+	int status = 0;
+	int len;
+	char *cont;
+
+	if (_strcmp(vars->array_inputs[0], "exit") == 0
+	    && vars->array_inputs[1] != NULL)
+	{
+		status = _atoi(vars->array_inputs[1]);
+		if(status == -1)
+		{
+			cont = convers_integer(vars->count);
+			status = 2;
+			write(1, cont, _strlen(cont));
+			write(1, ": exit : Illegal number: ", 25);
+			len = _strlen(vars->array_inputs[1]);
+			write(1, vars->array_inputs[1], len);
+			write(1, "\n", 1);
+			free(cont);
+			free(vars->array_inputs);
+			return;
+	        }
+	}
+	free(vars->array_inputs);
+	free(vars->buffer);
+	exit(status);
 }
 
 void comd_handling(input_v *vars, char **env)
 {
 	int child_pid;
-	int status = 0;
+	int status = 0, in = 0;
 	char *src_comd;
 
 	if(access(vars->array_inputs[0], X_OK) == 0)
@@ -54,6 +77,7 @@ void comd_handling(input_v *vars, char **env)
 	else
 	{
 		src_comd = get_enviroment(env, vars->array_inputs[0]);
+		in = 1;
 	}
 
 	child_pid = fork();
@@ -64,11 +88,14 @@ void comd_handling(input_v *vars, char **env)
 	if (child_pid == 0)
 	{
 		execve(src_comd, vars->array_inputs, env);
-		free(vars->array_inputs);
+		/*free(vars->array_inputs);*/
 		exit(1);
 	}
 
 	wait(&status);
+	free(vars->array_inputs);
+	if (in == 1)
+		free(src_comd);
 	/*write(1,"Child exit status = %d\n\n\n", status);*/
 }
 
@@ -95,12 +122,3 @@ void file1(input_v *vars, char **env)
 	printf("%s\n", new_str);
 	free(new_str);
 }
-
-/*void bin_ls(input_v *vars, char **env)
-{
-	(void)env;
-	if (execve(vars->array_inputs[0], vars->array_inputs, NULL) == -1)
-	{
-		perror("Error:");
-	}
-	}*/
