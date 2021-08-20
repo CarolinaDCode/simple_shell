@@ -1,8 +1,63 @@
-.TH  "24" "AUGUST 2021" "MR ROBOT"
+.\" Man page for Project 0x16. C - Simple Shell
+.TH Simple Shell Manpage "12 August 2021" "version 1.0"
 .SH NAME
-.B Shell
-- Simple UNIX command interpreter
+.B simple_shell - Simple UNIX command interpreter
+
+simple_shell - simple_shell (hsh) is a simple and basic shell, command-lne
+interpreter that provides you an interface to the Linux system, permi you
+execute commands like shell (sh) console command.
+
+Take input when you type a command and execute some functions based on that
+input and show you the execution of that function in other words:
+the output command.
+
 .SH SYNOPSIS
-.B Mr. Robot -
-nothing
+The simple shell is a simplified version of  the original shell, written by
+Ken Thompson
+
+./hsh
+/bin/[command] [option]
+[command] [option]
+
 .SH DESCRIPTION
+Is a simple hsh command language interpreter that executes commands using the
+path of this command that stored in the bin directory, the shell read from the
+standard input through the getline command, is based on the shell designed by
+Ken Thompson
+
+.SH EXAMPLE
+$  /bin/ls -l
+  -rw-r--r-- 1 root root     510 Aug 17 19:39 brokentoken.c
+  -rwxr-xr-x 1 root root   17264 Aug 17 13:37 shell
+  -rw-r--r-- 1 root root    1526 Aug 17 16:45 shell.c
+  -rw-r--r-- 1 root root     615 Aug 18 11:37 simpleshell.h
+  -rw-r--r-- 1 root root     728 Aug 14 18:50 match.c
+
+$  ls -l
+  -rw-r--r-- 1 root root     510 Aug 17 19:39 brokentoken.c
+  -rwxr-xr-x 1 root root   17264 Aug 17 13:37 shell
+  -rw-r--r-- 1 root root    1526 Aug 17 16:45 shell.c
+  -rw-r--r-- 1 root root     615 Aug 18 11:37 simpleshell.h
+  -rw-r--r-- 1 root root     728 Aug 14 18:50 match.c
+
+$ /bin/pwd
+  /home/simple_shell
+
+$ hhhhh
+  ./shell: No such file or directory
+
+.SH BUILTIN COMMANDS
+
+.SS env
+- list the current environment variables
+
+.SS exit
+- exit the shell
+
+.SH SEE ALSO
+access(2), bash (1), chdir(2), execve(2), _exit(2), exit(3), fflush(3), fork(2),
+free(3), isatty(3), getcwd(3), malloc(3), open(2), read(2), sh(1), signal(2),
+stat(2), wait(2), write(2)
+
+.SH AUTHOR
+Diana Carhuamanta and Gerandine Meneses
