@@ -1,11 +1,11 @@
 #include "simpleshell.h"
-#include <string.h>
-
 /**
- *
- *
+ * check_for_comand - function that compares the command entered.
+ * @vars: pointer that directs to the command array.
+ * @env: enviroment
+ * Return: command function
  */
-void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env)
+void *check_for_comand(input_v *vars, char **env)
 {
 	unsigned int i;
 	comand_v check[] = {
@@ -19,7 +19,7 @@ void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env)
 	};
 	(void)env;
 
-	for (i = 0; check[i].p !=NULL; i++)
+	for (i = 0; check[i].p != NULL; i++)
 	{
 		if (_strcmp(vars->array_inputs[0], check[i].name) == 0)
 		{
@@ -32,7 +32,12 @@ void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env)
 	}
 	return (check[i].p);
 }
-
+/**
+ * exit_func - function that handles the exit arguments
+ * @vars: pointer that directs to the command array.
+ * @env: enviroment
+ * Return: output, status or error
+ */
 void exit_func(input_v *vars, char **env)
 {
 	int status = 0;
@@ -44,7 +49,7 @@ void exit_func(input_v *vars, char **env)
 	    && vars->array_inputs[1] != NULL)
 	{
 		status = _atoi(vars->array_inputs[1]);
-		if(status == -1)
+		if (status == -1)
 		{
 			cont = convers_integer(vars->count);
 			status = 2;
@@ -64,13 +69,17 @@ void exit_func(input_v *vars, char **env)
 	free(vars->buffer);
 	exit(status);
 }
-
+/**
+ * comd_handling - evaluate and execute commands
+ * @vars: pointer that directs to the command array
+ * @env: enviroment
+ * Return: src_comd
+ */
 int comd_handling(input_v *vars, char **env)
-{
-	int child_pid, status = 0, in = 0;
+{	int child_pid, status = 0, in = 0;
 	char *src_comd, *cont;
 
-	if(access(vars->array_inputs[0], X_OK) == 0)
+	if (access(vars->array_inputs[0], X_OK) == 0)
 		src_comd = vars->array_inputs[0];
 	else
 	{
@@ -79,7 +88,7 @@ int comd_handling(input_v *vars, char **env)
 		if (src_comd == NULL)
 		{
 			write(STDOUT_FILENO,
-			      vars->name_pro,_strlen(vars->name_pro));
+			      vars->name_pro, _strlen(vars->name_pro));
 			write(STDOUT_FILENO, ": ", 2);
 			cont = convers_integer(vars->count);
 			write(STDOUT_FILENO, cont, _strlen(cont));
@@ -90,7 +99,7 @@ int comd_handling(input_v *vars, char **env)
 			free(cont);
 			free(src_comd);
 			free(vars->array_inputs);
-			return(127);
+			return (127);
 		}
 	}
 	child_pid = fork();
@@ -107,17 +116,29 @@ int comd_handling(input_v *vars, char **env)
 	if (in == 1)
 		free(src_comd);
 }
+/**
+ * take_env - function that gets global environment
+ * @vars: pointer that directs to the command array
+ * @env: enviroment
+ * Return: env
+ */
 void take_env(input_v *vars, char **env)
 {
 	int n = 0;
-	while(env[n])
+
+	while (env[n])
 	{
 		write(STDOUT_FILENO, env[n], _strlen(env[n]));
 		write(STDOUT_FILENO, "\n", 1);
 		n++;
 	}
 }
-
+/**
+ * file1 - lalalala
+ * @vars: vars
+ * @env: env
+ * Return: hola
+ */
 void file1(input_v *vars, char **env)
 {
 	printf("Hola");

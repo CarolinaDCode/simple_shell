@@ -1,7 +1,8 @@
 #include "simpleshell.h"
 /**
- *
- *
+ * _getline - function that gets the commands by input from the terminal
+ * @buff: variable that stores the commands
+ * Return: len
  */
 size_t _getline(char **buff)
 {
