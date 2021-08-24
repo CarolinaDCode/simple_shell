@@ -33,6 +33,8 @@ char **brokentoken(char *buffer, char *delimiter);
 int comd_handling(input_v *vars, char **env);
 char *get_enviroment(char **env, char *comd);
 char *get_dir_concat(char **new_env, char* comd);
+void take_env(input_v *vars, char **env);
+
 
 /*methods function C*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

@@ -10,7 +10,7 @@ void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env)
 	unsigned int i;
 	comand_v check[] = {
 		{"exit", exit_func},
-		{"env", file1},
+		{"env", take_env},
 		{"setenv", file1},
 		{"unsetenv", file1},
 		{"cd", file1},
@@ -107,27 +107,18 @@ int comd_handling(input_v *vars, char **env)
 	if (in == 1)
 		free(src_comd);
 }
+void take_env(input_v *vars, char **env)
+{
+	int n = 0;
+	while(env[n])
+	{
+		write(STDOUT_FILENO, env[n], _strlen(env[n]));
+		write(STDOUT_FILENO, "\n", 1);
+		n++;
+	}
+}
 
 void file1(input_v *vars, char **env)
 {
-	char *str = "Holaaaaaa";
-	char *new_str;
-	int counter = 0;
-	int z = 0;
-	(void)env;
-
-	while (str[counter])
-	{
-		counter++;
-	}
-
-	new_str = malloc(sizeof(char) * counter + 1);
-
-	while (z < counter)
-	{
-		new_str[z] = str[z];
-		z++;
-	}
-	printf("%s\n", new_str);
-	free(new_str);
+	printf("Hola");
 }

@@ -1,10 +1,11 @@
 #include "simpleshell.h"
 
 /**
- *
- *
- *
- *
+ * main - function that evaluates whether the command exists
+ * @ac: count
+ * @av: array
+ * @env: enviroment
+ * Return: message
  */
 int main(int ac, char **av, char **env)
 {
@@ -14,9 +15,9 @@ int main(int ac, char **av, char **env)
 	(void)ac;
 	var.name_pro = av[0];
 	if (isatty(STDIN_FILENO))
-		write(1,"#cisfun$ ",9);
+		write(1, "#cisfun$ ", 9);
 
-	while(len != 0 || var.count == 0)
+	while (len != 0 || var.count == 0)
 	{
 		var.buffer = NULL;
 		var.count++;
@@ -30,17 +31,17 @@ int main(int ac, char **av, char **env)
 		var.array_inputs = brokentoken(var.buffer, " ");
 		if (check_for_comand(&var, env) == NULL)
 		{
-			if(!comd_handling(&var, env))
+			if (!comd_handling(&var, env))
 			{
-				free(var.buffer);
-				free(var.array_inputs);
+				/*free(var.buffer);*/
+				/*free(var.array_inputs);*/
 			}
 		}
 		if (isatty(STDIN_FILENO))
-			write(1,"#cisfun$ ", 9);
+			write(1, "#cisfun$ ", 9);
 	}
 	if (isatty(STDIN_FILENO))
-		write(1,"\n", 1);
+		write(1, "\n", 1);
 	free(var.buffer);
 	return (0);
 }
