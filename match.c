@@ -14,7 +14,7 @@ void *check_for_comand(input_v *vars, char **env)
 		{"setenv", file1},
 		{"unsetenv", file1},
 		{"cd", file1},
-		{"help", file1},
+		{"help", help_func},
 		{NULL, NULL}
 	};
 	(void)env;
@@ -76,7 +76,8 @@ void exit_func(input_v *vars, char **env)
  * Return: src_comd
  */
 int comd_handling(input_v *vars, char **env)
-{	int child_pid, status = 0, in = 0;
+{
+	int child_pid, status = 0, in = 0;
 	char *src_comd, *cont;
 
 	if (access(vars->array_inputs[0], X_OK) == 0)

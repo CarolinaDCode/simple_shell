@@ -27,8 +27,14 @@ typedef struct com_struct
 	void (*p)(input_v *, char **);
 } comand_v;
 
+typedef struct com_help
+{
+	char *name;
+	char (*p)(input_v *);
+}help_v;
+
 /*utility functions*/
-void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env);
+void *check_for_comand(input_v *vars, char **env);
 char **brokentoken(char *buffer, char *delimiter);
 int comd_handling(input_v *vars, char **env);
 char *get_enviroment(char **env, char *comd);
@@ -53,4 +59,14 @@ void bin_ls(input_v *vars, char **env);
 void exit_func(input_v *vars, char **env);
 
 void file1(input_v *vars, char **env);
+
+/*funtion Help*/
+char *read_file(char *namefile);
+void help_func(input_v *vars, char **env);
+char (*help_match(input_v *vars))(input_v *vars);
+char print_exit(input_v *vars);
+char print_pwd(input_v *vars);
+char print_cd(input_v *vars);
+char print_help(input_v *vars);
+
 #endif
