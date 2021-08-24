@@ -18,6 +18,7 @@ typedef struct var_input
 	int count;
 	char *buffer;
 	char **array_inputs;
+	char *name_pro;
 } input_v;
 
 typedef struct com_struct
@@ -29,7 +30,7 @@ typedef struct com_struct
 /*utility functions*/
 void (*check_for_comand(input_v *vars, char **env))(input_v *vars, char **env);
 char **brokentoken(char *buffer, char *delimiter);
-void comd_handling(input_v *vars, char **env);
+int comd_handling(input_v *vars, char **env);
 char *get_enviroment(char **env, char *comd);
 char *get_dir_concat(char **new_env, char* comd);
 
@@ -40,8 +41,10 @@ char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 char *_strtok(char *line, char *delim);
 int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 char *convers_integer(int count);
+size_t _getline(char **buff);
 
 /*Command functions*/
 void bin_ls(input_v *vars, char **env);

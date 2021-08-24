@@ -1,10 +1,10 @@
 #include "simpleshell.h"
 
 /**
- *
- *
- *
- *
+ *brokentoken - item separating function
+ *@buffer: string to separate
+ *@delimiter: separator
+ *Return: pointer to buffer
  */
 char **brokentoken(char *buffer, char *delimiter)
 {
@@ -14,7 +14,7 @@ char **brokentoken(char *buffer, char *delimiter)
 
 	if (buffer == NULL)
 		return (NULL);
-	token = malloc(sizeof(char*)*mcount);
+	token = malloc(sizeof(char *) * mcount);
 	if (token == NULL)
 		return (NULL);
 
@@ -23,7 +23,7 @@ char **brokentoken(char *buffer, char *delimiter)
 		i++;
 		if (i == mcount)
 		{
-			token = _realloc(token, mcount, 2*mcount);
+			token = _realloc(token, mcount, 2 * mcount);
 			if (token == NULL)
 			{
 				return (NULL);

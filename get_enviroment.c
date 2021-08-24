@@ -41,7 +41,6 @@ char *get_enviroment(char **env, char *comd)
 	resv_concat = get_dir_concat(new_env, comd);
 	free(path_char);
 	return(resv_concat);
-	/*return(get_dir_concat(new_env, comd));*/
 }
 
 /**
@@ -52,9 +51,9 @@ char *get_enviroment(char **env, char *comd)
 char *get_dir_concat(char **new_env, char* comd)
 {
 	char *dir_concat;
-	int i, j;
+	int i;
 
-        for (i = 0; new_env != NULL; i++)
+        for (i = 0; new_env[i] != NULL; i++)
         {
                 dir_concat = _strdup(new_env[i]);
                 dir_concat = _strcat(dir_concat, "/");
@@ -66,4 +65,6 @@ char *get_dir_concat(char **new_env, char* comd)
                 }
 		free(dir_concat);
 	}
+	free (new_env);
+	return (0);
 }

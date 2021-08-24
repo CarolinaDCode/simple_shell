@@ -1,8 +1,9 @@
 #include "simpleshell.h"
 /**
- *
- *
- *
+ * _strlen - calculate the lenght of a string
+ * @s: input string
+ * Return: will return 1 for each element of the array
+ * array that is different from null
  */
 int _strlen(char *s)
 {
@@ -16,9 +17,9 @@ int _strlen(char *s)
 }
 
 /**
- *
- *
- *
+ *_atoi - function that converts strings to integers
+ *@s: input string
+ *Return: integer
  */
 int _atoi(char *s)
 {
@@ -35,14 +36,14 @@ int _atoi(char *s)
 			return (-1);
 		else if (num > 0)
 			break;
-	} while (*s++);
+	} while (*(++s));
 
 	return (num * sign);
 }
 /**
- *
- *
- *
+ *convers_integer - function that converts integers to strings
+ *@count: integer
+ *Return: pointer to char
  */
 char *convers_integer(int count)
 {
@@ -60,10 +61,30 @@ char *convers_integer(int count)
 
 	num[digits--] = '\0';
 
-	for (digits; count; digits--)
+	for (; count; digits--)
 	{
 		num[digits] = (count % 10) + '0';
 		count /= 10;
 	}
 	return (num);
+}
+/**
+ * _strcpy - copies the string pointed to by src
+ * to the buffer pointed to by dest
+ * @dest: string to copy to
+ * @src: string to copy
+ * Return: the pointer to dest
+ *
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int ultimo = 0;
+
+	while (src[ultimo] != '\0')
+	{
+		dest[ultimo] = src[ultimo];
+		ultimo++;
+	}
+	dest[ultimo] = '\0';
+	return (dest);
 }
