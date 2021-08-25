@@ -24,12 +24,12 @@ char *read_file(char *namefile)
 		return (NULL);
 	}
 	size = read(fd, buffer, st.st_size);
-	if (size == -1)
+	if (size < 0)
 	{
 		return (NULL);
 	}
 	close(fd);
-	buffer[size] == '\0';
+	buffer[size] = '\0';
 	return (buffer);
 }
 
@@ -41,6 +41,7 @@ char *read_file(char *namefile)
 
 void help_func(input_v *vars, char **env)
 {
+	(void)env;
 	char *str = NULL;
 	char (*f)(input_v *h);
 
