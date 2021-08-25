@@ -65,7 +65,7 @@ int exit_func(input_v *vars, char **env)
 		status = vars->exitstatus;
 	free(vars->array_inputs);
 	/*free(vars->buffer);*/
-	exit(status);
+	exit(0);
 }
 /**
  * comd_handling - evaluate and execute commands
