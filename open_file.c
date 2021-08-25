@@ -70,6 +70,9 @@ char (*help_match(input_v *vars))(input_v *vars)
 	unsigned int i;
 	help_v h[] = {
 		{"exit", print_exit},
+		{"pwd", print_pwd},
+		{"cd", print_cd},
+		{"help-help", print_help},
 		{NULL, NULL}
 	};
 	for (i = 0; h[i].p != NULL; i++)
