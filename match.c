@@ -61,7 +61,8 @@ int exit_func(input_v *vars, char **env)
 			return (2);
 		}
 	}
-
+	else if (vars->exitstatus != 0)
+		status = vars->exitstatus;
 	free(vars->array_inputs);
 	free(vars->buffer);
 	exit(status);
