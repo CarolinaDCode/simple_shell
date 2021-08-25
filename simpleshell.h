@@ -19,6 +19,7 @@
  * @buffer: buffer
  * @array_inputs: array_inputs
  * @name_pro: name_pro
+ * @exitstatus:exitstatus
  * typedef input_v: new name struct
  */
 typedef struct var_input
@@ -27,6 +28,7 @@ typedef struct var_input
 	char *buffer;
 	char **array_inputs;
 	char *name_pro;
+	int exitstatus;
 } input_v;
 
 /**
