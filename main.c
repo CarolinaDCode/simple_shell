@@ -29,7 +29,7 @@ int main(int ac, char **av, char **env)
 			var.buffer[len - 1] = '\0';
 		}
 		var.array_inputs = brokentoken(var.buffer, " ");
-		if (check_for_comand(&var, env) == NULL)
+		if (check_for_comand(&var, env) == 0)
 		{
 			if (!comd_handling(&var, env))
 			{

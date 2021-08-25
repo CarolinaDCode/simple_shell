@@ -13,6 +13,14 @@
 #include <fcntl.h>
 #include <errno.h>
 
+/**
+ * struct var_input - struct
+ * @count: count
+ * @buffer: buffer
+ * @array_inputs: array_inputs
+ * @name_pro: name_pro
+ * typedef input_v: new name struct
+ */
 typedef struct var_input
 {
 	int count;
@@ -21,25 +29,37 @@ typedef struct var_input
 	char *name_pro;
 } input_v;
 
+/**
+ * struct com_struct - struct
+ * @name: name
+ * @p: p
+ * typedef comand_v: new name struct
+ */
 typedef struct com_struct
 {
 	char *name;
-	void (*p)(input_v *, char **);
+	int (*p)(input_v *, char **);
 } comand_v;
 
+/**
+ * struct com_help - struct
+ * @name: name
+ * @p: p
+ * typedef input_v: new name struct
+ */
 typedef struct com_help
 {
 	char *name;
 	char (*p)(input_v *);
-}help_v;
+} help_v;
 
 /*utility functions*/
-void *check_for_comand(input_v *vars, char **env);
+int check_for_comand(input_v *vars, char **env);
 char **brokentoken(char *buffer, char *delimiter);
 int comd_handling(input_v *vars, char **env);
 char *get_enviroment(char **env, char *comd);
-char *get_dir_concat(char **new_env, char* comd);
-void take_env(input_v *vars, char **env);
+char *get_dir_concat(char **new_env, char *comd);
+int take_env(input_v *vars, char **env);
 
 
 /*methods function C*/
@@ -55,14 +75,11 @@ char *convers_integer(int count);
 size_t _getline(char **buff);
 
 /*Command functions*/
-void bin_ls(input_v *vars, char **env);
-void exit_func(input_v *vars, char **env);
-
-void file1(input_v *vars, char **env);
+int exit_func(input_v *vars, char **env);
 
 /*funtion Help*/
 char *read_file(char *namefile);
-void help_func(input_v *vars, char **env);
+int help_func(input_v *vars, char **env);
 char (*help_match(input_v *vars))(input_v *vars);
 char print_exit(input_v *vars);
 char print_pwd(input_v *vars);

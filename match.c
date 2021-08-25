@@ -5,15 +5,12 @@
  * @env: enviroment
  * Return: command function
  */
-void *check_for_comand(input_v *vars, char **env)
+int check_for_comand(input_v *vars, char **env)
 {
 	unsigned int i;
 	comand_v check[] = {
 		{"exit", exit_func},
 		{"env", take_env},
-		{"setenv", file1},
-		{"unsetenv", file1},
-		{"cd", file1},
 		{"help", help_func},
 		{NULL, NULL}
 	};
@@ -28,9 +25,9 @@ void *check_for_comand(input_v *vars, char **env)
 	}
 	if (check[i].p != NULL)
 	{
-		check[i].p(vars, env);
+		return (check[i].p(vars, env));
 	}
-	return (check[i].p);
+	return (0);
 }
 /**
  * exit_func - function that handles the exit arguments
@@ -38,7 +35,7 @@ void *check_for_comand(input_v *vars, char **env)
  * @env: enviroment
  * Return: output, status or error
  */
-void exit_func(input_v *vars, char **env)
+int exit_func(input_v *vars, char **env)
 {
 	int status = 0;
 	int len;
@@ -61,7 +58,7 @@ void exit_func(input_v *vars, char **env)
 			free(cont);
 			free(vars->array_inputs);
 			free(vars->buffer);
-			return;
+			return (2);
 		}
 	}
 
@@ -116,6 +113,7 @@ int comd_handling(input_v *vars, char **env)
 	free(vars->array_inputs);
 	if (in == 1)
 		free(src_comd);
+	return (0);
 }
 /**
  * take_env - function that gets global environment
@@ -123,24 +121,16 @@ int comd_handling(input_v *vars, char **env)
  * @env: enviroment
  * Return: env
  */
-void take_env(input_v *vars, char **env)
+int take_env(input_v *vars, char **env)
 {
 	int n = 0;
 
+	(void)vars;
 	while (env[n])
 	{
 		write(STDOUT_FILENO, env[n], _strlen(env[n]));
 		write(STDOUT_FILENO, "\n", 1);
 		n++;
 	}
-}
-/**
- * file1 - lalalala
- * @vars: vars
- * @env: env
- * Return: hola
- */
-void file1(input_v *vars, char **env)
-{
-	printf("Hola");
+	return (0);
 }

@@ -1,5 +1,4 @@
 #include "simpleshell.h"
-
 /**
  * read_file - Function that reads text files
  * @namefile: filename
@@ -9,7 +8,7 @@ char *read_file(char *namefile)
 {
 	char *buffer = NULL;
 	int fd;
-	size_t size;
+	ssize_t size;
 	struct stat st;
 
 	fd = open(namefile, O_RDONLY);
@@ -37,14 +36,14 @@ char *read_file(char *namefile)
  * help_func - Function that executes the help file
  * @vars: Structure to call
  * @env: Enviroment
+ * Return: help_match
  */
-
-void help_func(input_v *vars, char **env)
+int help_func(input_v *vars, char **env)
 {
-	(void)env;
 	char *str = NULL;
 	char (*f)(input_v *h);
 
+	(void)env;
 	if (vars->array_inputs[1])
 	{
 		f = help_match(vars);
@@ -57,6 +56,7 @@ void help_func(input_v *vars, char **env)
 		write(1, str, _strlen(str));
 		free(str);
 	}
+	return (0);
 }
 
 /**

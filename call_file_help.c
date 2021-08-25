@@ -10,6 +10,7 @@ char print_exit(input_v *vars)
 {
 	char *str = NULL;
 
+	(void)vars;
 	str = read_file("exit");
 	write(1, str, _strlen(str));
 	return (0);
@@ -25,6 +26,7 @@ char print_pwd(input_v *vars)
 {
 	char *str = NULL;
 
+	(void)vars;
 	str = read_file("pwd");
 	write(1, str, _strlen(str));
 	return (0);
@@ -40,6 +42,7 @@ char print_cd(input_v *vars)
 {
 	char *str = NULL;
 
+	(void)vars;
 	str = read_file("cd");
 	write(1, str, _strlen(str));
 	return (0);
@@ -55,6 +58,7 @@ char print_help(input_v *vars)
 {
 	char *str = NULL;
 
+	(void)vars;
 	str = read_file("help-help");
 	write(1, str, _strlen(str));
 	return (0);
