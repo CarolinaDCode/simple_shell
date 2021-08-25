@@ -38,6 +38,7 @@ int main(int ac, char **av, char **env)
 	}
 	if (isatty(STDIN_FILENO))
 		write(1, "\n", 1);
-	/*free(var.buffer);*/
+	if (var.count == 0)
+		free(var.buffer);
 	return (var.exitstatus);
 }
