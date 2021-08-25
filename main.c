@@ -25,7 +25,8 @@ int main(int ac, char **av, char **env)
 		{
 			var.buffer[len - 1] = '\0';
 			var.array_inputs = brokentoken(var.buffer, " ");
-			if ((var.exitstatus = check_for_comand(&var, env)) == 0)
+			var.exitstatus = check_for_comand(&var, env);
+			if (var.exitstatus == 0)
 			{
 				var.exitstatus = comd_handling(&var, env);
 				/*free(var.buffer);*/
