@@ -5,7 +5,6 @@
  * @vars: Structure to call
  * Return: 0
  */
-
 char print_exit(input_v *vars)
 {
 	char *str = NULL;
@@ -21,7 +20,6 @@ char print_exit(input_v *vars)
  * @vars: Structure to call
  * Return: 0
  */
-
 char print_pwd(input_v *vars)
 {
 	char *str = NULL;
@@ -37,7 +35,6 @@ char print_pwd(input_v *vars)
  * @vars: Structure to call
  * Return: 0
  */
-
 char print_cd(input_v *vars)
 {
 	char *str = NULL;
