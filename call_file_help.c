@@ -50,7 +50,6 @@ char print_cd(input_v *vars)
  * @vars: Structure to call
  * Return: 0
  */
-
 char print_help(input_v *vars)
 {
 	char *str = NULL;
