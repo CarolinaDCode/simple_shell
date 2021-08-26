@@ -42,8 +42,7 @@ int exit_func(input_v *vars, char **env)
 	char *cont;
 	(void)env;
 
-	if (_strcmp(vars->array_inputs[0], "exit") == 0
-	    && vars->array_inputs[1] != NULL)
+	if (vars->array_inputs[1] != NULL)
 	{
 		status = _atoi(vars->array_inputs[1]);
 		if (status == -1)
@@ -64,8 +63,8 @@ int exit_func(input_v *vars, char **env)
 	else if (vars->exitstatus != 0)
 		status = vars->exitstatus;
 	free(vars->array_inputs);
-	/*free(vars->buffer);*/
-	exit(0);
+	free(vars->buffer);
+	exit(status);
 }
 /**
  * comd_handling - evaluate and execute commands
