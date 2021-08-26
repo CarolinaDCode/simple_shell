@@ -1,5 +1,4 @@
 #include "simpleshell.h"
-
 /**
  *brokentoken - item separating function
  *@buffer: string to separate
