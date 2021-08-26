@@ -70,7 +70,7 @@ char (*help_match(input_v *vars))(input_v *vars)
 {
 	unsigned int i;
 	help_v h[] = {
-		{"exit", print_exit},
+		{"exit", print_exit}, /* llama a las funciones de los archivos */
 		{"pwd", print_pwd},
 		{"cd", print_cd},
 		{"help-help", print_help},
