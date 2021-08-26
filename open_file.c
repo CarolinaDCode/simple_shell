@@ -1,4 +1,5 @@
 #include "simpleshell.h"
+
 /**
  * read_file - Function that reads text files
  * @namefile: filename
@@ -65,7 +66,6 @@ int help_func(input_v *vars, char **env)
  * @vars: Structure to call
  * Return: Pointed file
  */
-
 char (*help_match(input_v *vars))(input_v *vars)
 {
 	unsigned int i;
