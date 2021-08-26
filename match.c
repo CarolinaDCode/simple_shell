@@ -126,11 +126,12 @@ int take_env(input_v *vars, char **env)
 	int n = 0;
 
 	(void)vars;
-	while (env[n])
+	while (env[n] != NULL)
 	{
 		write(STDOUT_FILENO, env[n], _strlen(env[n]));
 		write(STDOUT_FILENO, "\n", 1);
 		n++;
 	}
-	return (0);
+	free(vars->array_inputs);
+	return (1);
 }
