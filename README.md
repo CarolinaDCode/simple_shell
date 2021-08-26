@@ -25,7 +25,7 @@ Your shell will be compiled this way:
 ### 🧪 Testing
 ***
 Your shell should work like this in interactive mode:
-```
+```bash
 $ ./hsh
 ($) /bin/ls
 hsh main.c shell.c
@@ -34,7 +34,7 @@ hsh main.c shell.c
 $
 ```
 But also in non-interactive mode:
-```
+```bash
 $ echo "/bin/ls" | ./hsh
 hsh main.c shell.c test_ls_2
 $
@@ -69,6 +69,49 @@ $
 | [help](https://github.com/CarolinaDCode/simple_shell/blob/master/help) | Text file for reading the help help.|
 | [help-help](https://github.com/CarolinaDCode/simple_shell/blob/master/help-help) | Text file for reading the help-help help.|
 | [pwd](https://github.com/CarolinaDCode/simple_shell/blob/master/pwd) | Text file for reading the pwd help.|
+
+### :neckbeard: How To Install, Compile, and Use
+***
+First we clone the repository
+```shell
+root@c698ec171c6e:/home# git clone https://github.com/CarolinaDCode/simple_shell.git
+```
+Second we verify that the directory exists
+```shell
+root@c698ec171c6e:/home# ls
+holbertonschool-low_level_programming  holbertonschool-zero_day             pruebas_ss  simple_shell
+holbertonschool-math                   holberton-system_engineering-devops  
+```
+Third we enter the file and compile with the following commands:
+```shell
+root@c698ec171c6e:/home# cd simple_shell/
+root@c698ec171c6e:/home/simple_shell# gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o shell
+```
+run the code as follows:
+```shell
+root@c698ec171c6e:/home/simple_shell# ./shell
+#cisfun$
+```
+Sample Usage:
+```shell
+#cisfun$ ls
+AUTHORS           cd               func_methods.c    _getline.c  main.c                   match.c      README.md
+brokentoken.c     exit             generate_authors  help        man_1_simple_shell       open_file.c  shell
+call_file_help.c  func_methods2.c  get_enviroment.c  help-help   man_1_simple_shell.8.gz  pwd          simpleshell.h
+#cisfun$ help exit
+exit: exit [n]
+      Exit the shell.
+
+      Exits the shell with a status of N.  If N is omitted, the exit status
+      is that of the last command executed.
+
+#cisfun$
+``` 
+Stop and return to your original shell
+```shell
+#cisfun$ exit
+root@c698ec171c6e:/home/simple_shell#
+```
 
 ### ✒️ Authors
 ***
