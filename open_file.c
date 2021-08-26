@@ -45,12 +45,12 @@ int help_func(input_v *vars, char **env)
 	char (*f)(input_v *h);
 
 	(void)env;
-	if (vars->array_inputs[1])
+	if (vars->array_inputs[1]) /* si hay segundo argumento */
 	{
 		f = help_match(vars);
 		f(vars);
 	}
-	else
+	else /* si solo llama al help */
 	{
 		str = read_file("help");
 
